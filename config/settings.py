@@ -27,7 +27,7 @@ close_tabs = True                  # True or False
 # connect_request_message = ""       # Leave Empty to send connection request without personalized invitation (recommended to leave it empty, since you only get 10 per month without LinkedIn Premium*)
 
 # Do you want the program to run continuously until you stop it? (Beta)
-run_non_stop = False               # True or False ,   Will be treated as False if run_in_background is True
+run_non_stop = True               # True or False ,   Will be treated as False if run_in_background is True
 alternate_sortby = True            # True or False
 cycle_date_posted = True           # True or False
 stop_date_cycle_at_24hr = True     # True or False

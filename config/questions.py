@@ -108,11 +108,11 @@ confidence_level = "8"             # Any number between "1" to "10" including 1 
 
 ## Allow Manual Inputs
 # Should the tool pause before every submit application during easy apply to let you check the information?
-pause_before_submit = True         # True or False ,   Will be treated as False if run_in_background is True
+pause_before_submit = False         # True or False ,   Will be treated as False if run_in_background is True
 
 # Should the tool pause if it needs help in answering questions during easy apply?
 # Note: If set as False will answer randomly...
-pause_at_failed_question = True    # True or False ,   Will be treated as False if run_in_background is True
+pause_at_failed_question = False    # True or False ,   Will be treated as False if run_in_background is True
 ##
 
 # Do you want to overwrite previous answers?

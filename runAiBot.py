@@ -926,10 +926,10 @@ def run(total_runs: int) -> int:
     apply_to_jobs(search_terms)
     print_lg("########################################################################################################################\n")
     if not dailyEasyApplyLimitReached:
-        print_lg("Sleeping for 10 min...")
-        sleep(300)
-        print_lg("Few more min... Gonna start with in next 5 min...")
-        sleep(300)
+        print_lg("Sleeping for 30 sec...")
+        sleep(30)
+        print_lg("Few more min... Gonna start with in next 30 sec...")
+        sleep(30)
     buffer(3)
     return total_runs + 1
 
