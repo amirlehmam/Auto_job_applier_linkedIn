@@ -10,29 +10,29 @@ License:    GNU Affero General Public License
 GitHub:     https://github.com/GodsScion/Auto_job_applier_linkedIn
 
 '''
-
+from typing import Union
 
 
 
 # from config.XdepricatedX import *
 
 
-def check_int(var: int, var_name: str, min_value: int=0) -> bool | TypeError | ValueError:
+def check_int(var: int, var_name: str, min_value: int=0) -> Union[bool, TypeError, ValueError]:
     if not isinstance(var, int): raise TypeError(f'Invalid input for {var_name}. Expecting an Integer! Note: DoNOT surround an Integer in Quotes ("")!')
     if var < min_value: raise ValueError(f'Invalid input for {var_name}. Expecting an Integer greater than or equal to {min_value}!')
     return True
 
-def check_boolean(var: bool, var_name: str) -> bool | ValueError:
+def check_boolean(var: bool, var_name: str) -> Union[bool, ValueError]:
     if var == True or var == False: return True
     raise ValueError(f'Invalid input for {var_name}. Expecting a Boolean input "True" or "False", not "{var}" and do NOT surround True or False in Quotes ("")!')
 
-def check_string(var: str, var_name: str, options: list=[], min_length: int=0) -> bool | TypeError | ValueError:
+def check_string(var: str, var_name: str, options: list=[], min_length: int=0) -> Union[bool, TypeError, ValueError]:
     if not isinstance(var, str): raise TypeError(f'Invalid input for {var_name}. Expecting a String!')
     if min_length > 0 and len(var) < min_length: raise ValueError(f'Invalid input for {var_name}. Expecting a String of length at least {min_length}!')
     if len(options) > 0 and var not in options: raise ValueError(f'Invalid input for {var_name}. Expecting a value from {options}, not {var}!')
     return True
 
-def check_list(var: list, var_name: str, options: list=[], min_length: int=0) -> bool | TypeError | ValueError:
+def check_list(var: list, var_name: str, options: list=[], min_length: int=0) -> Union[bool, TypeError, ValueError]:
     if not isinstance(var, list): 
         raise TypeError(f'Invalid input for {var_name}. Expecting a List!')
     if len(var) < min_length: raise ValueError(f'Invalid input for {var_name}. Expecting a List of length at least {min_length}!')
@@ -44,7 +44,7 @@ def check_list(var: list, var_name: str, options: list=[], min_length: int=0) ->
 
 
 from config.personals import *
-def validate_personals() -> None | ValueError | TypeError:
+def validate_personals() -> Union[None, ValueError, TypeError]:
     check_string(first_name, "first_name", min_length=1)
     check_string(middle_name, "middle_name")
     check_string(last_name, "last_name", min_length=1)
@@ -66,7 +66,7 @@ def validate_personals() -> None | ValueError | TypeError:
 
 
 from config.questions import *
-def validate_questions() -> None | ValueError | TypeError:
+def validate_questions() -> Union[None, ValueError, TypeError]:
     check_string(default_resume_path, "default_resume_path")
     check_string(years_of_experience, "years_of_experience")
     check_string(require_visa, "require_visa", ["Yes", "No"])
@@ -88,7 +88,7 @@ def validate_questions() -> None | ValueError | TypeError:
 
 
 from config.search import *
-def validate_search() -> None | ValueError | TypeError:
+def validate_search() -> Union[None, ValueError, TypeError]:
     check_list(search_terms, "search_terms", min_length=1)
     check_string(search_location, "search_location")
     check_int(switch_number, "switch_number", 1)
@@ -127,7 +127,7 @@ def validate_search() -> None | ValueError | TypeError:
 
 
 from config.secrets import *
-def validate_secrets() -> None | ValueError | TypeError:
+def validate_secrets() -> Union[None, ValueError, TypeError]:
     check_string(username, "username", min_length=5)
     check_string(password, "password", min_length=5)
 
@@ -136,7 +136,7 @@ def validate_secrets() -> None | ValueError | TypeError:
 
 
 from config.settings import *
-def validate_settings() -> None | ValueError | TypeError:
+def validate_settings() -> Union[None, ValueError, TypeError]:
     check_boolean(close_tabs, "close_tabs")
     # check_boolean(connect_hr, "connect_hr")
     # check_string(connect_request_message, "connect_request_message", min_length=10)
@@ -164,7 +164,7 @@ def validate_settings() -> None | ValueError | TypeError:
 
 
 
-def validate_config() -> bool | ValueError | TypeError:
+def validate_config() -> Union[bool, ValueError, TypeError]:
     validate_personals()
     validate_questions()
     validate_search()

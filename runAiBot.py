@@ -226,8 +226,9 @@ def apply_filters() -> None:
         # print_lg(e)
 
 
+from typing import Tuple, Optional, Union
 
-def get_page_info() -> tuple[WebElement | None, int | None]:
+def get_page_info() -> Tuple[Optional[WebElement], Optional[int]]:
     '''
     Function to get pagination element and current page number
     '''
@@ -244,7 +245,7 @@ def get_page_info() -> tuple[WebElement | None, int | None]:
 
 
 
-def get_job_main_details(job: WebElement, blacklisted_companies: set, rejected_jobs: set) -> tuple[str, str, str, str, str, bool]:
+def get_job_main_details(job: WebElement, blacklisted_companies: set, rejected_jobs: set) -> Tuple[str, str, str, str, str, bool]:
     '''
     # Function to get job main details.
     Returns a tuple of (job_id, title, company, work_location, work_style, skip)
@@ -288,7 +289,7 @@ def get_job_main_details(job: WebElement, blacklisted_companies: set, rejected_j
 
 
 # Function to check for Blacklisted words in About Company
-def check_blacklist(rejected_jobs: set, job_id: str, company: str, blacklisted_companies: set) -> tuple[set, set, WebElement] | ValueError:
+def check_blacklist(rejected_jobs: set, job_id: str, company: str, blacklisted_companies: set) -> Union[Tuple[set, set, WebElement], ValueError]:
     jobs_top_card = try_find_by_classes(driver, ["job-details-jobs-unified-top-card__primary-description-container","job-details-jobs-unified-top-card__primary-description","jobs-unified-top-card__primary-description","jobs-details__main-content"])
     about_company_org = find_by_class(driver, "jobs-company__box")
     scroll_to_view(driver, about_company_org)
@@ -324,7 +325,7 @@ def extract_years_of_experience(text: str) -> int:
 
 
 # Function to upload resume
-def upload_resume(modal: WebElement, resume: str) -> tuple[bool, str]:
+def upload_resume(modal: WebElement, resume: str) -> Tuple[bool, str]:
     try:
         modal.find_element(By.NAME, "file").send_keys(os.path.abspath(resume))
         return True, os.path.basename(default_resume_path)
@@ -563,7 +564,7 @@ def answer_questions(questions_list: set, work_location: str) -> set:
 
 
 
-def external_apply(pagination_element: WebElement, job_id: str, job_link: str, resume: str, date_listed, application_link: str, screenshot_name: str) -> tuple[bool, str, int]:
+def external_apply(pagination_element: WebElement, job_id: str, job_link: str, resume: str, date_listed, application_link: str, screenshot_name: str) -> Tuple[bool, str, int]:
     '''
     Function to open new tab and save external job application links
     '''
@@ -626,12 +627,12 @@ def screenshot(driver: WebDriver, job_id: str, failedAt: str) -> str:
     return screenshot_name
 #>
 
+from typing import Literal
 
-
-def submitted_jobs(job_id: str, title: str, company: str, work_location: str, work_style: str, description: str, experience_required: int | Literal['Unknown', 'Error in extraction'], 
-                   skills: list[str] | Literal['In Development'], hr_name: str | Literal['Unknown'], hr_link: str | Literal['Unknown'], resume: str, 
-                   reposted: bool, date_listed: datetime | Literal['Unknown'], date_applied:  datetime | Literal['Pending'], job_link: str, application_link: str, 
-                   questions_list: set | None, connect_request: Literal['In Development']) -> None:
+def submitted_jobs(job_id: str, title: str, company: str, work_location: str, work_style: str, description: str, experience_required: Union[int, Literal['Unknown', 'Error in extraction']], 
+                   skills: Union[List[str], Literal['In Development']], hr_name: Union[str, Literal['Unknown']], hr_link: Union[str, Literal['Unknown']], resume: str, 
+                   reposted: bool, date_listed: Union[datetime, Literal['Unknown']], date_applied: Union[datetime, Literal['Pending']], job_link: str, application_link: str, 
+                   questions_list: Optional[set], connect_request: Literal['In Development']) -> None:
     '''
     Function to create or update the Applied jobs CSV file, once the application is submitted successfully
     '''
@@ -663,7 +664,7 @@ def discard_job() -> None:
 
 
 # Function to apply to jobs
-def apply_to_jobs(search_terms: list[str]) -> None:
+def apply_to_jobs(search_terms: List[str]) -> None:
     applied_jobs = get_applied_job_ids()
     rejected_jobs = set()
     blacklisted_companies = set()

@@ -13,16 +13,18 @@ GitHub:     https://github.com/GodsScion/Auto_job_applier_linkedIn
 
 from config.settings import click_gap, smooth_scroll
 from modules.helpers import buffer, print_lg, sleep
+from typing import List
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
+from typing import Union, Optional
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.common.action_chains import ActionChains
 
 # Click Functions
-def wait_span_click(driver: WebDriver, x: str, time: float=5.0, click: bool=True, scroll: bool=True, scrollTop: bool=False) -> WebElement | bool:
+def wait_span_click(driver: WebDriver, x: str, time: float=5.0, click: bool=True, scroll: bool=True, scrollTop: bool=False) -> Union[WebElement, bool]:
     if x:
         try:
             button = WebDriverWait(driver,time).until(EC.presence_of_element_located((By.XPATH, './/span[normalize-space(.)="'+x+'"]')))
@@ -71,7 +73,7 @@ def boolean_button_click(driver: WebDriver, actions, x: str) -> None:
         # print_lg(e)
 
 # Find functions
-def find_by_class(driver: WebDriver, class_name: str, time: float=5.0) -> WebElement | Exception:
+def find_by_class(driver: WebDriver, class_name: str, time: float=5.0) -> Union[WebElement, Exception]:
     return WebDriverWait(driver, time).until(EC.presence_of_element_located((By.CLASS_NAME, class_name)))
 
 # Scroll functions
@@ -87,7 +89,7 @@ def text_input_by_ID(driver: WebDriver, id: str, value: str, time: float=5.0) ->
     username_field.send_keys(Keys.CONTROL + "a")
     username_field.send_keys(value)
 
-def try_xp(driver: WebDriver, xpath: str, click: bool=True) -> WebElement | bool:
+def try_xp(driver: WebDriver, xpath: str, click: bool=True) -> Union[WebElement, bool]:
     try:
         if click:
             driver.find_element(By.XPATH, xpath).click()
@@ -96,11 +98,11 @@ def try_xp(driver: WebDriver, xpath: str, click: bool=True) -> WebElement | bool
             return driver.find_element(By.XPATH, xpath)
     except: return False
 
-def try_linkText(driver: WebDriver, linkText: str) -> WebElement | bool:
+def try_linkText(driver: WebDriver, linkText: str) -> Union[WebElement, bool]:
     try:    return driver.find_element(By.LINK_TEXT, linkText)
     except:  return False
 
-def try_find_by_classes(driver: WebDriver, classes: list[str]) -> WebElement | ValueError:
+def try_find_by_classes(driver: WebDriver, classes: List[str]) -> Union[WebElement, ValueError]:
     for cla in classes:
         try:    return driver.find_element(By.CLASS_NAME, cla)
         except: pass
@@ -116,7 +118,7 @@ def company_search_click(driver: WebDriver, actions: ActionChains, x: str) -> No
     actions.send_keys(Keys.ENTER).perform()
     print_lg(f'Tried searching and adding "{x}"')
 
-def text_input(actions: ActionChains, textInputEle: WebElement | bool, value: str, textFieldName: str = "Text") -> None | Exception:
+def text_input(actions: ActionChains, textInputEle: Union[WebElement, bool], value: str, textFieldName: str = "Text") -> Optional[Exception]:
     if textInputEle:
         sleep(1)
         # actions.key_down(Keys.CONTROL).send_keys("a").key_up(Keys.CONTROL).perform()

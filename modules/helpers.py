@@ -16,12 +16,15 @@ from time import sleep
 from random import randint
 from datetime import datetime, timedelta
 from config.settings import logs_folder_path 
-
+from typing import List
+from typing import Optional
+from typing import Optional, Union
+from datetime import datetime
 
 #### Common functions ####
 
 #< Directories related
-def make_directories(paths: list[str]) -> None:
+def make_directories(paths: List[str]) -> None:
     '''
     Function to create missing directories
     '''
@@ -35,7 +38,7 @@ def make_directories(paths: list[str]) -> None:
             print(f'Error while creating directory "{path}": ', e)
 
 
-def find_default_profile_directory() -> str | None:
+def find_default_profile_directory() -> Optional[str]:
     '''
     Function to search for Chrome Profiles within default locations
     '''
@@ -112,7 +115,7 @@ def manual_login_retry(is_logged_in: callable, limit: int = 2) -> None:
 
 
 
-def calculate_date_posted(time_string: str) -> datetime | None | ValueError:
+def calculate_date_posted(time_string: str) -> Optional[Union[datetime, ValueError]]:
     '''
     Function to calculate date posted from string.
     Returns datetime object | None if unable to calculate | ValueError if time_string is invalid
