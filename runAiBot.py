@@ -1,8 +1,8 @@
 '''
-Author:     Sai Vignesh Golla
-LinkedIn:   https://www.linkedin.com/in/saivigneshgolla/
+Author:     Amir Lehmam
+LinkedIn:   https://www.linkedin.com/in/amirlehmam/
 
-Copyright (C) 2024 Sai Vignesh Golla
+Copyright (C) 2024 Amir Lehmam
 
 License:    GNU Affero General Public License
             https://www.gnu.org/licenses/agpl-3.0.en.html
@@ -926,10 +926,10 @@ def run(total_runs: int) -> int:
     apply_to_jobs(search_terms)
     print_lg("########################################################################################################################\n")
     if not dailyEasyApplyLimitReached:
-        print_lg("Sleeping for 30 sec...")
-        sleep(30)
-        print_lg("Few more min... Gonna start with in next 30 sec...")
-        sleep(30)
+        print_lg("Sleeping for 10 min...")
+        sleep(300)
+        print_lg("Few more min... Gonna start with in next 5 min...")
+        sleep(300)
     buffer(3)
     return total_runs + 1
 
@@ -1013,7 +1013,7 @@ def main() -> None:
             "Obstacles are those frightful things you see when you take your eyes off your goal. - Henry Ford",
             "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt"
             ])
-        msg = f"\n{quote}\n\n\nBest regards,\nSai Vignesh Golla\nhttps://www.linkedin.com/in/saivigneshgolla/\n\n"
+        msg = f"\n{quote}\n\n\nBest regards,\nAmir Lehmam\nhttps://www.linkedin.com/in/amirlehmam/\n\n"
         pyautogui.alert(msg, "Exiting..")
         print_lg(msg,"Closing the browser...")
         if tabs_count >= 10:

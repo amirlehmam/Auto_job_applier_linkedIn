@@ -18,15 +18,15 @@ GitHub:     https://github.com/GodsScion/Auto_job_applier_linkedIn
 # >>>>>>>>>>> Easy Apply Questions & Inputs <<<<<<<<<<<
 
 # Your legal name
-first_name = "Amir"                 # Your first name in quotes Eg: "First", "Sai"
-middle_name = ""            # Your name in quotes Eg: "Middle", "Vignesh", ""
-last_name = "LEHMAM"                # Your last name in quotes Eg: "Last", "Golla"
+first_name = 'Amir'
+middle_name = ''
+last_name = 'Lehmam'
 
 # Phone number (required), make sure it's valid.
-phone_number = "0787323996"        # Enter your 10 digit number in quotes Eg: "9876543210"
+phone_number = '0787323996'
 
 # What is your current city?
-current_city = "Vitry-sur-Seine"                  # Los Angeles, San Francisco, etc.
+current_city = 'Vitry-sur-Seine'
 '''
 Note: If left empty as "", the bot will fill in location of jobs location.
 '''
