@@ -2,10 +2,10 @@
 
 # These Sentences are Searched in LinkedIn
 # Enter your search terms inside '[ ]' with quotes ' "searching title" ' for each search followed by comma ', ' Eg: ["Software Engineer", "Software Developer", "Selenium Developer"]
-search_terms = 'Data'
+search_terms = 'Python, Data Science, Machine Learning, Quantitative Developer'
 
 # Search location, this will be filled in "City, state, or zip code" search box. If left empty as "", tool will not fill it.
-search_location = 'London'
+search_location = 'Paris'
 
 # After how many number of applications in current search should the bot switch to next search? 
 switch_number = 300                 # Only numbers greater than 0... Don't put in quotes

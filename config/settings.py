@@ -35,10 +35,10 @@ stop_date_cycle_at_24hr = True     # True or False
 
 # These Sentences are Searched in LinkedIn
 # Enter your search terms inside '[ ]' with quotes ' "searching title" ' for each search followed by comma ', ' Eg: ["Software Engineer", "Software Developer", "Selenium Developer"]
-search_terms = ["Python", "Data", "Data Analyst", "Quantitative", "Quant"]
+search_terms = ["Python", "Machine Learning", "Data Analyst", "Quantitative Developer", "Quant"]
 
 # Search location, this will be filled in "City, state, or zip code" search box. If left empty as "", tool will not fill it.
-search_location = 'London'
+search_location = 'Paris'
 
 # After how many number of applications in current search should the bot switch to next search? 
 switch_number = 150                 # Only numbers greater than 0... Don't put in quotes
