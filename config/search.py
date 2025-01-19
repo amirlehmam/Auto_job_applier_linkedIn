@@ -2,7 +2,7 @@
 
 # These Sentences are Searched in LinkedIn
 # Enter your search terms inside '[ ]' with quotes ' "searching title" ' for each search followed by comma ', ' Eg: ["Software Engineer", "Software Developer", "Selenium Developer"]
-search_terms = 'Python, Data Science, Machine Learning, Quantitative Developer'
+search_terms = 'Data'
 
 # Search location, this will be filled in "City, state, or zip code" search box. If left empty as "", tool will not fill it.
 search_location = 'Paris'
@@ -33,7 +33,7 @@ This is below format: QUESTION = VALID_ANSWER
 
 sort_by = 'Most recent'
 date_posted = 'Past week'
-salary = ""                        # "$40,000+", "$60,000+", "$80,000+", "$100,000+", "$120,000+", "$140,000+", "$160,000+", "$180,000+", "$200,000+"
+salary = ""                 # "$40,000+", "$60,000+", "$80,000+", "$100,000+", "$120,000+", "$140,000+", "$160,000+", "$180,000+", "$200,000+"
 
 easy_apply_only = True             # True or False
 
@@ -79,6 +79,9 @@ did_masters = True                 # True or False
 # Avoid applying to jobs if their required experience is above your current_experience. (Set value as -1 if you want to apply to all ignoring their required experience...)
 current_experience = 5             # Integers > -2 (Ex: -1, 0, 1, 2, 3, 4...)
 ##
+
+
+
 
 
 

@@ -27,7 +27,7 @@ years_of_experience = "5"          # A number in quotes Eg: "0","1","2","3","4",
 require_visa = "Yes"               # "Yes" or "No"
 
 # What is the link to your portfolio website, leave it empty as "", if you want to leave this question unanswered
-website = "https://github.com/GodsScion"                        # "www.example.bio" or "" and so on....
+website = "https://github.com/amirlehmam"                        # "www.example.bio" or "" and so on....
 
 # Please provide the link to your LinkedIn profile.
 linkedIn = "https://www.linkedin.com/in/amirlehmam/"       # "https://www.linkedin.com/in/example" or "" and so on...
@@ -41,7 +41,7 @@ us_citizenship = "Other"
 ## SOME ANNOYING QUESTIONS BY COMPANIES 🫠 ##
 
 # What to enter in your desired salary question (American and European), What is your expected CTC (South Asian and others)?, only enter in numbers as some companies only allow numbers,
-desired_salary = 120000          # 80000, 90000, 100000 or 120000 and so on... Do NOT use quotes
+desired_salary = 70000          # 80000, 90000, 100000 or 120000 and so on... Do NOT use quotes
 '''
 Note: If question has the word "lakhs" in it (Example: What is your expected CTC in lakhs), 
 then it will add '.' before last 5 digits and answer. Examples: 
@@ -53,7 +53,7 @@ And if asked in months, then it will divide by 12 and answer. Examples:
 '''
 
 # What is your current CTC? Some companies make it compulsory to be answered in numbers...
-current_ctc = 80000            # 800000, 900000, 1000000 or 1200000 and so on... Do NOT use quotes
+current_ctc = 65000            # 800000, 900000, 1000000 or 1200000 and so on... Do NOT use quotes
 '''
 Note: If question has the word "lakhs" in it (Example: What is your current CTC in lakhs), 
 then it will add '.' before last 5 digits and answer. Examples: 
